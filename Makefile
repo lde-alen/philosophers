@@ -6,21 +6,13 @@
 #    By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 14:22:14 by lde-alen          #+#    #+#              #
-#    Updated: 2023/01/28 14:25:29 by lde-alen         ###   ########.fr        #
+#    Updated: 2023/01/28 14:34:17 by lde-alen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
-SRCS		=	src/utils/utils.c											\
-				src/utils/utils2.c											\
-				src/utils/init.c											\
-				src/utils/freedom.c											\
-				src/error_handling/error_check.c							\
-				src/error_handling/error_print.c							\
-				src/dinning_problem/setup.c									\
-				src/main.c													\
-				src/dinning_problem/setup2.c								\
+SRCS		=
 
 CFLAGS		=	-Wall -Wextra -Werror -g3
 
