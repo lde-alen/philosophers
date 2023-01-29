@@ -6,17 +6,31 @@
 #    By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 14:22:14 by lde-alen          #+#    #+#              #
-#    Updated: 2023/01/28 14:34:17 by lde-alen         ###   ########.fr        #
+#    Updated: 2023/01/29 18:58:52 by lde-alen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
-SRCS		=
+SRCS		=	srcs/main.c													\
+				srcs/errors/error_check.c									\
+				srcs/errors/error_print.c									\
+				srcs/init/init.c											\
+				srcs/init/threads.c											\
+				srcs/simulation/monitoring.c								\
+				srcs/simulation/simulation.c								\
+				srcs/simulation/sim_utils.c									\
+				srcs/simulation/thread_tasks.c								\
+				srcs/utils/error_utils.c									\
+				srcs/utils/philo_print_utils.c								\
+				srcs/utils/time_utils.c										\
+				srcs/utils/utils.c											\
+				srcs/free/free.c											\
+
 
 CFLAGS		=	-Wall -Wextra -Werror -g3
 
-INCLUDES	=	-I./include
+INCLUDES	=	-I./includes
 
 CC			=	gcc
 
