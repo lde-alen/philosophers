@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:22:30 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 18:54:05 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:38:17 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
  */
 void		ft_fputchar(char c);
 void		ft_fputstr(char *str);
-void		*monitoring(void *philo_arr);
+void		*monitoring(t_philo *philo);
 void		*routine(void *philo);
 void		ft_print(t_philo *philo, char *str);
 void		free_table(t_table *table);
@@ -52,7 +52,7 @@ int			init_table(t_table	*table, t_reaper *reaper, char **av);
 int			init_philo(t_table *table, t_philo *philo, t_reaper *reaper);
 int			thread_init(t_table *table);
 int			join_threads(t_table *table);
-int			start_threads(t_table *table, t_philo *philo);
+int			start_threads(t_table *table, t_philo *philo, t_reaper *reaper);
 int			simulation(t_table *table, t_reaper *reaper);
 int			eat(t_philo *philo);
 int			eat2(t_philo *philo);

@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 18:46:53 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:38:24 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,24 @@ int	start_philos(t_table *table, t_philo *philo)
 
 int	start_reaper(t_reaper *reaper)
 {
-	pthread_t	grim_reaper;
+	int i;
 
-	grim_reaper = (pthread_t)malloc(sizeof(pthread_t));
-	if (pthread_create(&grim_reaper, NULL, monitoring, reaper->philo_arr))
-		return (ft_fputstr("ERROR: thread creation failed.\n"), 1);
+	i = 0;
+	while(i < reaper->philo_arr[i].table->dead)
+	{
+		monitoring(&reaper->philo_arr[i]);
+		i++;
+	}
 	return (0);
 }
 
-int	start_threads(t_table *table, t_philo *philo)
+int	start_threads(t_table *table, t_philo *philo, t_reaper *reaper)
 {
-	t_reaper	reaper;
-
 	table->start_time = timestamp();
 	if (thread_init(table))
 		return (1);
 	start_philos(table, philo);
-	start_reaper(&reaper);
+	start_reaper(reaper);
 	join_threads(table);
 	return (0);
 }
