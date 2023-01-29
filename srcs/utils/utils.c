@@ -6,11 +6,11 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:18:17 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:19:43 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:55:22 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philosopher.h"
 
 /**
  * @brief checks if a caracter is a digit.

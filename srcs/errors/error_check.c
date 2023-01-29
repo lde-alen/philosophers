@@ -6,11 +6,11 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:31:29 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:14:20 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:27:20 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philosopher.h"
 
 /**
  * @brief error

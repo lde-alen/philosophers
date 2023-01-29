@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prototypes.h                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 19:21:47 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:16:09 by lde-alen         ###   ########.fr       */
+/*   Created: 2023/01/29 18:45:46 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/01/29 18:47:41 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROTOTYPES_H
-# define PROTOTYPES_H
+#include "philosopher.h"
 
-/**
- * 	PROTOTYPES
- * 
- */
-void	ft_fputchar(char c);
-void	ft_fputstr(char *str);
+void	free_table(t_table *table)
+{
+	int	i;
 
-int		check_nb_args(int ac);
-int		is_num(char **str);
-int		check_args(int ac, char **av);
-
-#endif
+	i = 0;
+	free(table->forks);
+	while (i < table->nb_philo)
+	{
+		pthread_mutex_destroy(&table->forks_mutex[i]);
+		i++;
+	}
+	free (table->forks_mutex);
+	pthread_mutex_destroy(&table->print_lock);
+}

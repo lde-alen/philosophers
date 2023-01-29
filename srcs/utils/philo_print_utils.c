@@ -6,11 +6,11 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:22:03 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:28:28 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:55:07 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philosopher.h"
 
 /**
  * @brief Function that prints the current time, the id of the philosopher his
@@ -36,7 +36,7 @@ void	ft_print(t_philo *philo, char *str)
  * @param philo 
  * @param flag 
  */
-void	ft_print_safe(t_philo *philo, t_state flag)
+void	ft_print_safe(t_philo *philo, int flag)
 {
 	if (check_death(philo) == 0 && flag != DIED)
 	{

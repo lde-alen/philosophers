@@ -6,11 +6,11 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:52:54 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:17:59 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:54:50 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philosopher.h"
 
 /**
  * @brief  takes the number of arguments and checks if it is between 5 and 6.

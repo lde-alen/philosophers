@@ -6,11 +6,11 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:20:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:21:45 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:58:01 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philosopher.h"
 
 /**
  * @brief returns the current time in milliseconds.

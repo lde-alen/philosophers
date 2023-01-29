@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:22:30 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 14:11:19 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:54:05 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,48 @@
  * INCLUDES
  * 
  */
-# include <pthread.h>
 # include <stdio.h>
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/time.h>
-# include "instructions.h"
 # include "macros.h"
-# include "prototypes.h"
+# include "structs.h"
+# include "instructions.h"
 
 /**
- * STRUCTURES
+ * 	PROTOTYPES
  * 
  */
-typedef struct s_philo
-{
-	int				id;
-	int				nb_meals;
-	pthread_mutex_t	meal_lock;
-	long long		last_meal;
-	pthread_mutex_t	last_meal_lock;
-	int				r_fork;
-	struct s_table	*table;
-}	t_philo;
+void		ft_fputchar(char c);
+void		ft_fputstr(char *str);
+void		*monitoring(void *philo_arr);
+void		*routine(void *philo);
+void		ft_print(t_philo *philo, char *str);
+void		free_table(t_table *table);
+void		ft_print_safe(t_philo *philo, int flag);
+void		ft_usleep(long long ms, t_philo *philo);
+size_t		ft_strlen(char *str);
 
-typedef struct s_table
-{
-	int					nb_philo;
-	int					time_to_die;
-	int					time_to_eat;
-	int					time_to_sleep;
-	int					nb_meals;
-	long long			start_time;
-	int					dead;
-	int					*forks;
-	pthread_mutex_t		*forks_mutex;
-	pthread_mutex_t		print_lock;
-	pthread_mutex_t		death_mutex;
-	pthread_t			*philo;
-}	t_table;
+int			start_philos(t_table *table, t_philo *philo);
+int			start_reaper(t_reaper *reaper);
+int			ft_isdigit(char c);
+int			ft_atoi(const char *str);
+int			check_death(t_philo *philo);
+int			check_nb_args(int ac);
+int			is_num(char **str);
+int			check_args(int ac, char **av);
+int			init_table(t_table	*table, t_reaper *reaper, char **av);
+int			init_philo(t_table *table, t_philo *philo, t_reaper *reaper);
+int			thread_init(t_table *table);
+int			join_threads(t_table *table);
+int			start_threads(t_table *table, t_philo *philo);
+int			simulation(t_table *table, t_reaper *reaper);
+int			eat(t_philo *philo);
+int			eat2(t_philo *philo);
+int			ft_check_meal(t_philo *philo);
+
+long long	timestamp(void);
+long long	exact_time(long long start);
 
 #endif
