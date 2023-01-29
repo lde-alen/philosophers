@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:47:49 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 18:25:46 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 19:57:50 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@
 int	main(int ac, char **av)
 {
 	t_table		table;
-	t_reaper	reaper;
 
-	if (check_args(ac, av) || init_table(&table, &reaper, av))
+	if (check_args(ac, av) || init_table(&table, av))
 		return (1);
 	else
-		return (simulation(&table, &reaper), 0);
+		return (simulation(&table), 0);
 }

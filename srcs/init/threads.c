@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 15:38:24 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:01:02 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,30 @@ int	start_philos(t_table *table, t_philo *philo)
 	return (0);
 }
 
-int	start_reaper(t_reaper *reaper)
+int	start_reaper(t_table *table)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < reaper->philo_arr[i].table->dead)
+	while (i < table->philo_arr[i].table->nb_philo && !table->dead)
 	{
-		monitoring(&reaper->philo_arr[i]);
-		i++;
+		usleep(500);
+		monitoring(&table->philo_arr[i]);
+		if (i == table->philo_arr[i].table->nb_philo - 1)
+			i = 0;
+		else
+			i++;
 	}
 	return (0);
 }
 
-int	start_threads(t_table *table, t_philo *philo, t_reaper *reaper)
+int	start_threads(t_table *table, t_philo *philo)
 {
 	table->start_time = timestamp();
 	if (thread_init(table))
 		return (1);
 	start_philos(table, philo);
-	start_reaper(reaper);
+	start_reaper(table);
 	join_threads(table);
 	return (0);
 }

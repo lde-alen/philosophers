@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:21:47 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 18:18:20 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 19:51:07 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ typedef struct s_philo
 	struct s_table	*table;
 }	t_philo;
 
-typedef struct s_reaper
-{
-	t_philo				*philo_arr;
-}	t_reaper;
-
 typedef struct s_table
 {
 	int					nb_philo;
@@ -53,6 +48,7 @@ typedef struct s_table
 	pthread_mutex_t		print_lock;
 	pthread_mutex_t		death_mutex;
 	pthread_t			*philo;
+	t_philo				*philo_arr;
 }	t_table;
 
 #endif
