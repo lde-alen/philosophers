@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:07:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 19:53:19 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:34:22 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,26 @@ int	init_table(t_table	*table, char **av)
 	return (thread_init(table), 0);
 }
 
-int	init_philo(t_table *table, t_philo *philo)
+int	init_philo(t_table *table)
 {
 	int		i;
 
 	i = 0;
 	while (i < table->nb_philo)
 	{
-		pthread_mutex_init(&philo[i].meal_lock, NULL);
-		pthread_mutex_init(&philo[i].last_meal_lock, NULL);
-		if (pthread_mutex_init(&philo[i].meal_lock, NULL)
-			|| pthread_mutex_init(&philo[i].meal_lock, NULL))
+		pthread_mutex_init(&table->philo_arr[i].meal_lock, NULL);
+		pthread_mutex_init(&table->philo_arr[i].last_meal_lock, NULL);
+		if (pthread_mutex_init(&table->philo_arr[i].meal_lock, NULL)
+			|| pthread_mutex_init(&table->philo_arr[i].meal_lock, NULL))
 			return (ft_fputstr("ERROR: mutex init failed.\n"), 1);
-		philo[i].table = table;
-		philo[i].id = i;
-		philo[i].r_fork = i + 1;
+		table->philo_arr[i].table = table;
+		table->philo_arr[i].id = i;
+		table->philo_arr[i].r_fork = i + 1;
 		if (i == table->nb_philo - 1)
-			philo[i].r_fork = 0;
-		philo[i].nb_meals = 0;
-		philo[i].last_meal = 0;
-		table->philo_arr[i] = philo[i];
+			table->philo_arr[i].r_fork = 0;
+		table->philo_arr[i].nb_meals = 0;
+		table->philo_arr[i].last_meal = 0;
+		table->philo_arr[i] = table->philo_arr[i];
 		i++;
 	}
 	return (0);

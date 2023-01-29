@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:22:03 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 18:55:07 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:35:01 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_print(t_philo *philo, char *str)
  */
 void	ft_print_safe(t_philo *philo, int flag)
 {
-	if (check_death(philo) == 0 && flag != DIED)
+	if (check_death_status(philo) == 0 && flag != DIED)
 	{
 		if (flag == EATING)
 			ft_print(philo, "is eating");

@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:20:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 18:58:01 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:49:08 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ long long	timestamp(void)
 }
 
 /**
- * @brief returns the time elapsed since the start of the program.
+ * @brief returns the time elapsed since th given time from start of the program.
  * 
  * @param start 
  * @return long long 
@@ -47,6 +47,6 @@ void	ft_usleep(long long ms, t_philo *philo)
 	long long	time;
 
 	time = timestamp();
-	while (timestamp() - time < ms && check_death(philo) == FALSE)
+	while (timestamp() - time < ms && check_death_status(philo) == FALSE)
 		usleep(1000);
 }

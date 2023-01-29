@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:40:25 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 15:35:46 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:21:25 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*monitoring(t_philo *philo)
 {
-	int			i;
+	int	i;
 
 	i = 0;
-	while (check_death(philo) == 0)
+	while (!check_death_status(philo))
 	{
+		usleep(500);
 		pthread_mutex_lock(&philo->last_meal_lock);
-		if (exact_time(philo->last_meal) > philo->table->time_to_die && \
-			philo->last_meal != 0)
+		if (exact_time(philo->last_meal) > philo->table->time_to_die)
 		{
 			pthread_mutex_unlock(&philo->last_meal_lock);
 			pthread_mutex_lock(&philo->table->death_mutex);
@@ -32,7 +32,6 @@ void	*monitoring(t_philo *philo)
 		}
 		else
 			pthread_mutex_unlock(&philo->last_meal_lock);
-		usleep(500);
 		i++;
 	}
 	return (NULL);

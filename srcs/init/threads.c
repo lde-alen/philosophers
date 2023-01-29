@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 20:01:02 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:35:21 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	join_threads(t_table *table)
 	return (0);
 }
 
-int	start_philos(t_table *table, t_philo *philo)
+int	start_philos(t_table *table)
 {
 	int		i;
 
@@ -52,7 +52,8 @@ int	start_philos(t_table *table, t_philo *philo)
 	while (i < table->nb_philo)
 	{
 		usleep(500);
-		if (pthread_create(&table->philo[i], NULL, routine, &philo[i]))
+		if (pthread_create(&table->philo[i], NULL, routine,
+				&table->philo_arr[i]))
 			return (ft_fputstr("ERROR: thread creation failed.\n"), 1);
 		i++;
 	}
@@ -64,11 +65,12 @@ int	start_reaper(t_table *table)
 	int	i;
 
 	i = 0;
-	while (i < table->philo_arr[i].table->nb_philo && !table->dead)
+	while (i < table->nb_philo)
 	{
 		usleep(500);
 		monitoring(&table->philo_arr[i]);
-		if (i == table->philo_arr[i].table->nb_philo - 1)
+		if (i == table->philo_arr[i].table->nb_philo - 1
+			&& table->philo_arr[i].table->nb_philo > 1)
 			i = 0;
 		else
 			i++;
@@ -76,12 +78,12 @@ int	start_reaper(t_table *table)
 	return (0);
 }
 
-int	start_threads(t_table *table, t_philo *philo)
+int	start_threads(t_table *table)
 {
 	table->start_time = timestamp();
 	if (thread_init(table))
 		return (1);
-	start_philos(table, philo);
+	start_philos(table);
 	start_reaper(table);
 	join_threads(table);
 	return (0);
