@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:07:54 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/28 19:26:37 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:25:04 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,23 @@
  * TRUE / FALSE
  * 
  */
-# define TRUE		1
-# define FALSE		0
+enum e_bool
+{
+	FALSE = 0,
+	TRUE = 1,
+}	t_bool;
 
 /**
  * PHILOSOPHER STATES
  * 
  */
-# define EATING		0
-# define SLEEPING	1
-# define THINKING	2
-# define FORK		3
-# define DIED		4
+enum e_state
+{
+	EATING = 0,
+	SLEEPING = 1,
+	THINKING = 2,
+	FORK = 3,
+	DIED = 4,
+}	t_state;
 
 #endif

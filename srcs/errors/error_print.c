@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 14:47:49 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 13:58:27 by lde-alen         ###   ########.fr       */
+/*   Created: 2023/01/29 13:37:51 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/01/29 13:44:10 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
 /**
- * @brief main node that calls for the argument check to check for invalid
- * parameters. Then calls the funcitons that initializes the shared structure
- * and the philo structures.
- * @param argc 
- * @param argv 
- * @return int | 1 if error occured, 0 if no error.
+ * @brief prints a caracter to the standard error output.
+ * 
+ * @param char c 
+ * @return void
  */
-int	main(int ac, char **av)
+void	ft_fputchar(char c)
 {
-	t_table	table;
+	write(2, &c, 1);
+}
 
-	if (check_args(ac, av) || init_table(&table, av))
-		return (1);
-	else
-		return (sim_start(&table), 0);
+/**
+ * @brief prints a string to the standard error output.
+ * 
+ * @param string
+ */
+void	ft_fputstr(char *str)
+{
+	while (*str)
+		ft_fputchar(*str++);
 }

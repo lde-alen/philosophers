@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo_time_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 14:47:49 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 13:58:27 by lde-alen         ###   ########.fr       */
+/*   Created: 2023/01/29 14:28:35 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/01/29 14:56:09 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
 /**
- * @brief main node that calls for the argument check to check for invalid
- * parameters. Then calls the funcitons that initializes the shared structure
- * and the philo structures.
- * @param argc 
- * @param argv 
- * @return int | 1 if error occured, 0 if no error.
+ * @brief returns the current time in milliseconds.
+ * 
+ * @param ms 
+ * @param philo 
  */
-int	main(int ac, char **av)
+void	ft_usleep(long long ms, t_philo *philo)
 {
-	t_table	table;
+	long long	time;
 
-	if (check_args(ac, av) || init_table(&table, av))
-		return (1);
-	else
-		return (sim_start(&table), 0);
+	time = timestamp();
+	while (timestamp() - time < ms && check_death(philo) == FALSE)
+		usleep(1000);
 }

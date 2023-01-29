@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:07:39 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/28 19:27:05 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 13:59:38 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define INSTRUCTIONS_H
 
 /**
- * MACROS ERRORS
+ * MACROS for the formatted and organized Instructions.
  * 
  */
 # define SYNTAX	"\n								\033[4mINSTRUCTIONS:\033[0m\n\n\
