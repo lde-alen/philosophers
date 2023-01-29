@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:20:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 20:49:08 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 23:24:21 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void	ft_usleep(long long ms, t_philo *philo)
 
 	time = timestamp();
 	while (timestamp() - time < ms && check_death_status(philo) == FALSE)
-		usleep(1000);
+		usleep(500);
 }

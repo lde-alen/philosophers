@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:22:30 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 21:33:03 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:55:16 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@
  */
 void		ft_fputchar(char c);
 void		ft_fputstr(char *str);
-void		*monitoring(t_philo *philo);
 void		*routine(void *philo);
 void		ft_print(t_philo *philo, char *str);
 void		free_table(t_table *table);
 void		ft_print_safe(t_philo *philo, int flag);
 void		ft_usleep(long long ms, t_philo *philo);
-size_t		ft_strlen(char *str);
 
+int			monitoring(t_philo *philo);
 int			start_philos(t_table *table);
 int			start_reaper(t_table *table);
 int			ft_isdigit(char c);
@@ -60,5 +59,7 @@ int			ft_check_meal(t_philo *philo);
 
 long long	timestamp(void);
 long long	exact_time(long long start);
+
+size_t		ft_strlen(char *str);
 
 #endif

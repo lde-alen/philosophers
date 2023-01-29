@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:42:21 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 21:03:17 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/29 23:25:03 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,3 @@ int	check_death_status(t_philo *philo)
 		return (0);
 	}
 }
-
-
