@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:07:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 21:34:22 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:22:49 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	init_table(t_table	*table, char **av)
 	table->time_to_die = ft_atoi(av[2]);
 	table->time_to_eat = ft_atoi(av[3]);
 	table->time_to_sleep = ft_atoi(av[4]);
-	table->dead = 0;
+	table->end = 0;
 	table->philo_arr = (t_philo *)malloc(sizeof(t_philo) * table->nb_philo);
 	table->philo = (pthread_t *)malloc(sizeof(pthread_t) * table->nb_philo);
 	table->forks = (int *)malloc(sizeof(int) * table->nb_philo);
@@ -52,7 +52,6 @@ int	init_philo(t_table *table)
 			table->philo_arr[i].r_fork = 0;
 		table->philo_arr[i].nb_meals = 0;
 		table->philo_arr[i].last_meal = 0;
-		table->philo_arr[i] = table->philo_arr[i];
 		i++;
 	}
 	return (0);

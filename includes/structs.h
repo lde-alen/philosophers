@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:21:47 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 21:26:58 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:10:16 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_table
 	int					time_to_sleep;
 	int					nb_meals;
 	long long			start_time;
-	int					dead;
+	int					end;
 	int					*forks;
 	pthread_mutex_t		*forks_mutex;
 	pthread_mutex_t		print_lock;
