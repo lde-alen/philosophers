@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:07:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 12:50:03 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:11:36 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	init_philo(t_table *table)
 		table->philo_arr[i].r_fork = i + 1;
 		if (i == table->nb_philo - 1)
 			table->philo_arr[i].r_fork = 0;
-		table->philo_arr[i].nb_meals = 0;
+		table->philo_arr[i].nb_meals = -1;
 		table->philo_arr[i].last_meal = 0;
 		table->philo_arr[i].total_nb_philo = table->nb_philo;
 		i++;

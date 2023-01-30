@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:41:10 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 17:47:09 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:45:19 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	*routine(void *philo)
 
 	philo_cpy = philo;
 	philo_cpy->last_meal = timestamp();
+	if (philo_cpy->total_nb_philo == 1)
+		ft_print_safe(philo_cpy, FORK);
 	while (!check_death_status(philo_cpy))
 	{
 		while (!check_death_status(philo_cpy) && eat(philo_cpy) == 0)

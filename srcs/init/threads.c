@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 17:54:53 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:03:31 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,14 @@ int	start_reaper(t_table *table)
 	int	i;
 	int	end;
 
-	i = 0;
+	i = -1;
 	end = 0;
-	while (i < table->nb_philo && end == 0)
+	while (++i < table->nb_philo && !end)
 	{
 		usleep(100);
 		end = monitoring(&table->philo_arr[i]);
-		if (i == table->philo_arr[i].table->nb_philo - 1
-			&& table->philo_arr[i].table->nb_philo > 1)
-			i = 0;
-		else
-			i++;
+		if (i == table->nb_philo - 1)
+			i = -1;
 	}
 	return (0);
 }
