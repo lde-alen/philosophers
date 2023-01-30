@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:40:25 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 15:59:07 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:00:36 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	monitoring(t_philo *philo)
 			return (meal_end(philo));
 		}
 		else if (ft_check_meal(philo) == TRUE)
-			return (meal_end(philo));
+			return (pthread_mutex_unlock(&philo->last_meal_lock),
+				meal_end(philo));
 		else
 			pthread_mutex_unlock(&philo->last_meal_lock);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:21:47 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 15:10:16 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:58:47 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_philo
 	long long		last_meal;
 	pthread_mutex_t	last_meal_lock;
 	int				r_fork;
+	int				total_nb_philo;
 	struct s_table	*table;
 }	t_philo;
 

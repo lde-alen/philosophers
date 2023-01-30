@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 16:20:10 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:46:20 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	thread_init(t_table *table)
 
 	i = -1;
 	if (pthread_mutex_init(&table->print_lock, NULL)
-		|| pthread_mutex_init(&table->death_mutex, NULL)
 		|| pthread_mutex_init(&table->death_mutex, NULL))
 		return (ft_fputstr("ERROR: mutex init failed.\n"), 1);
 	while (++i < table->nb_philo)
