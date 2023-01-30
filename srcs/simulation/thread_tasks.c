@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:41:10 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 12:57:07 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:47:09 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	eat2(t_philo *philo)
 {
 	philo->table->forks[philo->r_fork] = FALSE;
 	pthread_mutex_unlock(&philo->table->forks_mutex[philo->r_fork]);
+	ft_print_safe(philo, FORK);
 	ft_print_safe(philo, FORK);
 	pthread_mutex_lock(&philo->last_meal_lock);
 	philo->last_meal = timestamp();
@@ -41,7 +42,6 @@ int	eat(t_philo *philo)
 	{
 		philo->table->forks[philo->id] = FALSE;
 		pthread_mutex_unlock(&philo->table->forks_mutex[philo->id]);
-		ft_print_safe(philo, FORK);
 		pthread_mutex_lock(&philo->table->forks_mutex[philo->r_fork]);
 		if (philo->table->forks[philo->r_fork] == TRUE)
 			return (eat2(philo));

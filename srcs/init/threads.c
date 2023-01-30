@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 12:46:20 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:54:53 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	thread_init(t_table *table)
 		return (ft_fputstr("ERROR: mutex init failed.\n"), 1);
 	while (++i < table->nb_philo)
 	{
-		usleep(100);
 		table->forks[i] = 1;
 		if (pthread_mutex_init(&table->forks_mutex[i], NULL))
 			return (ft_fputstr("ERROR: mutex init failed.\n"), 1);
@@ -37,7 +36,6 @@ int	join_threads(t_table *table)
 	i = 0;
 	while (i < table->nb_philo)
 	{
-		usleep(100);
 		if (pthread_join(table->philo[i], NULL))
 			return (ft_fputstr("ERROR: thread join failed.\n"), 1);
 		i++;
@@ -52,7 +50,6 @@ int	start_philos(t_table *table)
 	i = 0;
 	while (i < table->nb_philo)
 	{
-		usleep(100);
 		if (pthread_create(&table->philo[i], NULL, routine,
 				&table->philo_arr[i]))
 			return (ft_fputstr("ERROR: thread creation failed.\n"), 1);
@@ -68,7 +65,7 @@ int	start_reaper(t_table *table)
 
 	i = 0;
 	end = 0;
-	while (i < table->nb_philo && !end)
+	while (i < table->nb_philo && end == 0)
 	{
 		usleep(100);
 		end = monitoring(&table->philo_arr[i]);
