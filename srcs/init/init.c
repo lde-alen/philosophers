@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:07:01 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 20:11:36 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:16:35 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int	init_table(t_table	*table, char **av)
 		return (ft_fputstr("ERROR: malloc failed.\n"), 1);
 	table->nb_meals = -1;
 	if (av[5])
+	{
 		table->nb_meals = ft_atoi(av[5]);
+		if (table->nb_meals == 0)
+			return (ft_fputstr("ERROR: invalid number of meals.\n"), 1);
+	}
 	return (thread_init(table), 0);
 }
 

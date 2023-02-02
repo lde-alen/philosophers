@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:41:10 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 20:45:19 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:07:35 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	*routine(void *philo)
 		ft_print_safe(philo_cpy, FORK);
 	while (!check_death_status(philo_cpy))
 	{
+		usleep(100);
 		while (!check_death_status(philo_cpy) && eat(philo_cpy) == 0)
 			;
 		ft_print_safe(philo_cpy, SLEEPING);

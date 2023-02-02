@@ -6,12 +6,19 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:40:25 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 20:12:28 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:04:48 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
+/**
+ * @brief 
+ * 		Checks if the philosopher is dead or if they ate the minimum number of meals
+ *	
+ * @param philo 
+ * @return int 
+ */
 int	monitoring(t_philo *philo)
 {
 	usleep(100);

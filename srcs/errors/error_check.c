@@ -6,14 +6,14 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:31:29 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/29 19:44:23 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:10:46 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
 /**
- * @brief error
+ * @brief error checker for the arguments
  * 
  * @param ac 
  * @param av 
