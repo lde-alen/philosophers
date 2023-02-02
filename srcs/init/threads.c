@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:08:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 20:03:31 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/03 00:06:47 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	start_philos(t_table *table)
 	i = 0;
 	while (i < table->nb_philo)
 	{
+		usleep(350);
 		if (pthread_create(&table->philo[i], NULL, routine,
 				&table->philo_arr[i]))
 			return (ft_fputstr("ERROR: thread creation failed.\n"), 1);

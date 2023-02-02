@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:42:21 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/01/30 20:19:36 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/02 23:41:26 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_check_meal(t_philo *philo)
 	{
 		pthread_mutex_lock(&philo->table->philo_arr[i].meal_lock);
 		if (philo->table->nb_meals == -1
-			|| philo->table->philo_arr[i].nb_meals < philo->table->nb_meals)
+			|| philo->table->philo_arr[i].nb_meals < philo->table->nb_meals -1)
 			food_coma++;
 		pthread_mutex_unlock(&philo->table->philo_arr[i].meal_lock);
 		i++;
